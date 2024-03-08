@@ -11,7 +11,7 @@
        <h1>Hello World</h1>
         <ul>
             @foreach ($books as $book)
-                <li>{{$book}}</li>
+                <li>{{$book->id}} | {{$book->isbn}}<br />{{ $book->title }}</li>
             @endforeach
         </ul>
     </body>

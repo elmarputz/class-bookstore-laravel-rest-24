@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/books', function () {
+    $books = DB::table('books')->get();
+    return view('books.index', compact('books'));
+});
 
-    $books = [
-      'Herr der Ringe I',
-        'Herr der Ringe II',
-        'Herr der Ringe III',
-    ];
+Route::get('/books/{id}', function($id) {
+    $book = DB::table('books')->find($id);
+    return view('books.show', compact('book'));
 
-    return view('welcome', compact('books'));
 });
