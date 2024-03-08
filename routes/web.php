@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+
+    $books = [
+      'Herr der Ringe I',
+        'Herr der Ringe II',
+        'Herr der Ringe III',
+    ];
+
+    return view('welcome', compact('books'));
 });
