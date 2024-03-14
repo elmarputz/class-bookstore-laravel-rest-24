@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/books', function () {
     $books = DB::table('books')->get();
     return view('books.index', compact('books'));
