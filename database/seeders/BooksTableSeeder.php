@@ -15,37 +15,13 @@ class BooksTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('books')->insert([
-            'title' => Str::random(50),
-            'isbn' => "123456789",
-            'subtitle' => Str::random(50),
-            'rating' => 10,
-            'description' => Str::random(1000),
-            'published' => new DateTime(),
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at'  => date("Y-m-d H:i:s")
-        ]);
-
-        DB::table('books')->insert([
-            'title' => Str::random(50),
-            'isbn' => "1234567891",
-            'subtitle' => Str::random(50),
-            'rating' => 10,
-            'description' => Str::random(1000),
-            'published' => new DateTime(),
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at'  => date("Y-m-d H:i:s")
-        ]);
-
-        DB::table('books')->insert([
-            'title' => Str::random(50),
-            'isbn' => "1234567890",
-            'subtitle' => Str::random(50),
-            'rating' => 10,
-            'description' => Str::random(1000),
-            'published' => new DateTime(),
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at'  => date("Y-m-d H:i:s")
-        ]);
+        $book = new \App\Models\Book();
+        $book->title = "Herr der Ringe";
+        $book->subtitle = "Die Rückkehr des Königs";
+        $book->isbn = "23234234232423";
+        $book->rating = 8;
+        $book->description = "Letzter Teil der Trilogie";
+        $book->published = new DateTime();
+        $book->save();
     }
 }

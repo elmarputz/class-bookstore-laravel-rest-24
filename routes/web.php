@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Models\Book;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/books', function () {
-    $books = DB::table('books')->get();
+    $books = Book::all();
     return view('books.index', compact('books'));
 });
 
 Route::get('/books/{id}', function($id) {
-    $book = DB::table('books')->find($id);
+    $book = Book::find($id);
     return view('books.show', compact('book'));
 
 });
+
