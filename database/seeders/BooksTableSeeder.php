@@ -22,6 +22,25 @@ class BooksTableSeeder extends Seeder
         $book->rating = 8;
         $book->description = "Letzter Teil der Trilogie";
         $book->published = new DateTime();
+
+        // get first user
+        $user = \App\Models\User::all()->first();
+        $book->user()->associate($user);
+
         $book->save();
+
+        $image1 = new \App\Models\Image;
+        $image1->title = "img 01";
+        $image1->url = 'https://picsum.photos/400/400';
+
+        $image2 = new \App\Models\Image;
+        $image2->title = "img 02";
+        $image2->url = 'https://picsum.photos/400/400';
+
+        $book->images()->saveMany([$image1,$image2]);
+        $book->save();
+
+
+
     }
 }

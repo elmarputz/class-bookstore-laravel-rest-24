@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('isbn')->unique();
+            $table->string('url');
             $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->date('published')->nullable();
-            $table->integer('rating')->default('1');
-            $table->text('description')->nullable();
 
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // FK constraint books
+            //$table->foreign('book_id')
+            //    ->references('id')->on('books')
+            //    ->onDelete('cascade');
+
+            $table->foreignId('book_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('images');
     }
 };
