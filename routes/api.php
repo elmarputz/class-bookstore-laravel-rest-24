@@ -19,4 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/books',[\App\Http\Controllers\BookController::class, 'index']);
-Route::get('/books/{id}',[\App\Http\Controllers\BookController::class, 'show'] );
+Route::get('/books/{isbn}',[\App\Http\Controllers\BookController::class, 'findByISBN'] );
+Route::get('/books/search/{searchTerm}',[\App\Http\Controllers\BookController::class, 'findBySearchTerm'] );
+
+Route::post('/books', [\App\Http\Controllers\BookController::class, 'save']);
