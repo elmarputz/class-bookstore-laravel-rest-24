@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use DateTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -38,6 +39,11 @@ class BooksTableSeeder extends Seeder
         $image2->url = 'https://picsum.photos/400/400';
 
         $book->images()->saveMany([$image1,$image2]);
+
+        // test authors
+        $authors = Author::all()->pluck("id");
+        $book->authors()->sync($authors);
+
         $book->save();
 
 
