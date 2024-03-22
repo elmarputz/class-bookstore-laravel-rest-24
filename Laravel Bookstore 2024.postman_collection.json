@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "7abf6fdf-19c4-4e2b-b340-ca81bdc1eb5e",
+		"name": "Laravel Bookstore 2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2905019"
+	},
+	"item": [
+		{
+			"name": "get all books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://bookstore24.putz.kwmhgb.at/api/books",
+					"protocol": "http",
+					"host": [
+						"bookstore24",
+						"putz",
+						"kwmhgb",
+						"at"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find book by ISBN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://bookstore24.putz.kwmhgb.at/api/books/23234234232423",
+					"protocol": "http",
+					"host": [
+						"bookstore24",
+						"putz",
+						"kwmhgb",
+						"at"
+					],
+					"path": [
+						"api",
+						"books",
+						"23234234232423"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find book by search term",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://bookstore24.putz.kwmhgb.at/api/books/search/Muster",
+					"protocol": "http",
+					"host": [
+						"bookstore24",
+						"putz",
+						"kwmhgb",
+						"at"
+					],
+					"path": [
+						"api",
+						"books",
+						"search",
+						"Muster"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"isbn\": \"2323423423242asdfasdf3\",\n    \"title\": \"Herr der Ringe II\",\n    \"subtitle\": \"Die Rückkehr des Königs\",\n    \"published\": \"2024-03-22\",\n    \"rating\": 8,\n    \"description\": \"Letzter Teil der Trilogie\",\n    \"user_id\": 1, \n    \"images\": [\n            {\n                \"url\": \"https://picsum.photos/400/400\",\n                \"title\": \"img 03\"\n            },\n            {\n                \"url\": \"https://picsum.photos/400/400\",\n                \"title\": \"img 04\"\n            }\n        ],\n        \"authors\": [\n            {\n                \"id\": 1,\n                \"firstName\": \"Max\",\n                \"lastName\": \"Muster\"\n            },\n            {\n                \"firstName\": \"Sualjladsfsanne\",\n                \"lastName\": \"ZZZ-asdlkjasdf-WWW\"\n            }\n\n        ]\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bookstore24.putz.kwmhgb.at/api/books",
+					"protocol": "http",
+					"host": [
+						"bookstore24",
+						"putz",
+						"kwmhgb",
+						"at"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
