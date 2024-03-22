@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
+use App\Models\Image;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +47,27 @@ class BookController extends Controller
         try {
 
             $book = Book::create($request->all());
+
+            if (isset($request['images']) && is_array($request['images'])) {
+                foreach ($request['images'] as $img) {
+                    $image = Image::firstOrNew([
+                       'url' => $img['url'],
+                       'title' => $img['title']
+                    ]);
+                    $book->images()->save($image);
+                }
+            }
+
+            if (isset($request['authors']) && is_array($request['authors'])) {
+                foreach ($request['authors'] as $auth) {
+                    $author = Author::firstOrNew([
+                        'firstName' => $auth['firstName'],
+                        'lastName' => $auth['lastName']
+                    ]);
+                    $book->authors()->save($author);
+                }
+            }
+
 
             DB::commit();
             return response()->json($book, 200);
